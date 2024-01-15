@@ -13,11 +13,9 @@ openai.api_key = OPENAI_KEY
 
 
 def SpeakText(command):
-    # Save the text as an audio file
     tts = gTTS(text=command, lang='en')
     tts.save("output.mp3")
 
-    # Play the saved audio file
     playsound("output.mp3")
 
 
