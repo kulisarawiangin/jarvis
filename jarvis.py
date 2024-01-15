@@ -29,7 +29,7 @@ def record_text():
         return MyText
 
     except sr.UnknownValueError as e:
-        print("Could not understand audio; {0}".format(e))
+        print("Unknown error occurred")
 
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
