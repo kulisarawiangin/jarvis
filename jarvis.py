@@ -1,7 +1,7 @@
 import openai
-import speech_recognition as sr
 from gtts import gTTS
 from playsound import playsound
+import speech_recognition as sr
 import os
 from dotenv import load_dotenv
 
@@ -28,11 +28,13 @@ def record_text():
         print("You:", MyText)
         return MyText
 
+    except sr.RequestError as e:
+        print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
     except sr.UnknownValueError as e:
         print("Unknown error occurred")
 
-    except sr.RequestError as e:
-        print("Could not request results from Google Speech Recognition service; {0}".format(e))
+    
 
 def send_to_chatGPT(messages, model="gpt-3.5-turbo"):
     response = openai.ChatCompletion.create(
